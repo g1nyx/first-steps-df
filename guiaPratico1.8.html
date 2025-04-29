@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <title>Guia de Lógica de Programação - JavaScript</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      line-height: 1.6;
+      max-width: 800px;
+      margin: 40px auto;
+      padding: 0 20px;
+      background-color: #f9f9f9;
+      color: #333;
+    }
+    h1, h2 {
+      color: #4a148c;
+    }
+    code {
+      background: #e0e0e0;
+      padding: 2px 6px;
+      border-radius: 4px;
+      font-size: 14px;
+    }
+    pre {
+      background-color: #eee;
+      padding: 10px;
+      border-radius: 5px;
+      overflow-x: auto;
+    }
+  </style>
+</head>
+<body>
+  <h1>✨ Guia Rápido: Lógica de Programação com JavaScript</h1>
+
+  <h2>📝 Variáveis</h2>
+  <p>Usamos variáveis para guardar valores temporários na memória.</p>
+  <pre><code>let nome = "Lua";
+let idade = 25;
+let ativo = true;</code></pre>
+
+  <h2>📊 Tipos de Dados</h2>
+  <p>Definem o tipo de valor que a variável armazena.</p>
+  <ul>
+    <li><strong>String</strong>: texto - <code>"Olá"</code></li>
+    <li><strong>Number</strong>: números - <code>10</code>, <code>3.14</code></li>
+    <li><strong>Boolean</strong>: verdadeiro ou falso - <code>true</code>, <code>false</code></li>
+  </ul>
+
+  <h2>🔢 Operadores</h2>
+  <p>Usados para fazer cálculos ou comparações entre valores.</p>
+  <p><strong>Aritméticos:</strong> <code>+</code>, <code>-</code>, <code>*</code>, <code>/</code>, <code>%</code></p>
+  <p><strong>Comparativos:</strong> verificam igualdade e ordem - <code>==</code>, <code>===</code>, <code>!=</code>, <code>&lt;</code>, <code>&gt;</code>, <code>&gt;=</code></p>
+  <p><strong>Lógicos:</strong> combinam ou negam condições - <code>&&</code>, <code>||</code>, <code>!</code></p>
+
+  <h2>🔄 Laços de Repetição</h2>
+  <p>Executam um bloco de código várias vezes de forma automática.</p>
+
+  <p><strong>while</strong> - repete enquanto a condição for verdadeira:</p>
+  <pre><code>let i = 0;
+while (i < 5) {
+  console.log(i);
+  i++;
+}</code></pre>
+
+  <p><strong>Exemplo detalhado:</strong></p>
+  <pre><code>let numero = 1;
+while (numero <= 5) {
+  alert(numero);
+  numero++;
+}</code></pre>
+  <ul>
+    <li><code>let numero = 1;</code> → começa do 1</li>
+    <li><code>while (numero <= 5)</code> → roda de 1 a 5</li>
+    <li><code>alert(numero);</code> → mostra o número</li>
+    <li><code>numero++;</code> → soma 1 a cada vez</li>
+  </ul>
+
+  <p><strong>for</strong> - loop com início, fim e passo definidos:</p>
+  <pre><code>for (let i = 0; i < 5; i++) {
+  console.log(i);
+}</code></pre>
+
+  <p><strong>break</strong> - interrompe o loop antes de terminar:</p>
+  <pre><code>for (let i = 0; i < 10; i++) {
+  if (i === 5) break;
+  console.log(i);
+}</code></pre>
+
+  <p><strong>continue</strong> - pula a repetição atual e vai pra próxima:</p>
+  <pre><code>for (let i = 0; i < 5; i++) {
+  if (i === 2) continue;
+  console.log(i);
+}</code></pre>
+
+  <h2>📅 Estruturas Condicionais</h2>
+  <p>Executam blocos diferentes dependendo da condição.</p>
+  <pre><code>if (idade >= 18) {
+  alert("Maior de idade");
+} else {
+  alert("Menor de idade");
+}</code></pre>
+
+  <h2>⚛️ Operador Ternário</h2>
+  <p>Simplifica decisões simples em uma linha só.</p>
+  <pre><code>let resultado = idade >= 18 ? "Adulto" : "Menor";</code></pre>
+
+  <h2>💡 Funções</h2>
+  <p>Blocos de código reutilizáveis que recebem dados e retornam ações.</p>
+  <pre><code>function saudacao(nome) {
+  alert("Olá, " + nome);
+}
+saudacao("Lua");</code></pre>
+
+  <h2>🎲 Math e Aleatoriedade</h2>
+  <p>Usado para gerar números aleatórios e fazer arredondamentos.</p>
+  <pre><code>let aleatorio = Math.random(); // entre 0 e 1
+let numeroInteiro = Math.floor(Math.random() * 10) + 1;</code></pre>
+  <ul>
+    <li><code>Math.floor()</code> - arredonda para baixo</li>
+    <li><code>Math.ceil()</code> - arredonda para cima</li>
+    <li><code>Math.round()</code> - arredonda normalmente</li>
+  </ul>
+
+  <h2>📢 Interação com o Usuário</h2>
+  <p>Exibe mensagens e recebe entradas do usuário.</p>
+  <ul>
+    <li><code>alert("Oi!")</code> - mostra uma caixa de mensagem</li>
+    <li><code>prompt("Seu nome?")</code> - pede um valor digitado</li>
+    <li><code>console.log()</code> - mostra informações no console</li>
+  </ul>
+
+  <h2>⚠️ Erros Comuns e Boas Práticas</h2>
+  <ul>
+    <li><strong>Usar <code>=</code> no lugar de <code>==</code> ou <code>===</code>:</strong> <br> <code>=</code> é para atribuir, <code>===</code> é para comparar.</li>
+    <li><strong>Esquecer o <code>let</code>, <code>const</code> ou <code>var</code>:</strong> pode criar variáveis acidentalmente no escopo global.</li>
+    <li><strong>Loop infinito:</strong> sempre garantir que a condição vai parar em algum momento.</li>
+    <li><strong>Funções sem retorno quando precisa usar o valor:</strong> usar <code>return</code> para devolver valores.</li>
+    <li><strong>Uso do Console:</strong> usar <code>console.log()</code> para entender o que o código está fazendo.</li>
+  </ul>
+
+</body>
+</html>
