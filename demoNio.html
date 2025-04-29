@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <title>Advinhe o numero</title>
+  <style>
+  body {
+    background-color: #1e1e3f;
+    color: #ffffff;
+    font-family: Arial, sans-serif;
+    text-align: center;
+    padding-top: 50px;
+  }
+
+  button {
+    background-color: #6a0dad;
+    color: #ffffff;
+    border: none;
+    padding: 10px 20px;
+    font-size: 18px;
+    border-radius: 8px;
+    cursor: pointer;
+    margin-top: 20px;
+  }
+
+  button:hover {
+    background-color: #8e44ad;
+  }
+</style>
+</head>
+<body>
+  <p>Clique no botão abaixo para iniciar o jogo!</p>
+  <button onclick="iniciarJogo()">Iniciar Jogo</button>
+
+  <script>
+    function iniciarJogo() {
+      let dificuldade = prompt("Escolha a dificuldade: fácil, médio ou difícil");
+      let limite;
+
+      if (dificuldade === "fácil") {
+        limite = 10;
+      } else if (dificuldade === "médio") {
+        limite = 50;
+      } else if (dificuldade === "difícil") {
+        limite = 100;
+      } else {
+        alert("Dificuldade inválida. Tente novamente.");
+        return; // encerra a função
+      }
+
+      let numeroSecreto = parseInt(Math.random() * limite) + 1;
+      console.log(numeroSecreto)
+      let chute = parseInt(prompt(`Tente adivinhar o número de 1 a ${limite}`));
+
+      if (chute === numeroSecreto) {
+        alert("Parabéns, você acertou!");
+      } else {
+        alert(`Você errou! O número era ${numeroSecreto}.`);
+      }
+    }
+  </script>
+</body>
+</html>
