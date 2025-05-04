@@ -5,18 +5,18 @@
   <title>Advinhe o numero</title>
   <style>
   body {
-    background-color: #1e1e3f;
-    color: #ffffff;
-    font-family: Arial, sans-serif;
+    background-color: #080838;
+    color: #f2dcff;
     text-align: center;
     padding-top: 50px;
   }
 
   button {
     background-color: #4a148c;
-    color: #ffffff;
+    color: #f2dcff;
     border: none;
     padding: 10px 20px;
+    font-family: Courier;
     font-size: 18px;
     border-radius: 8px;
     cursor: pointer;
@@ -37,35 +37,77 @@
 </style>
 </head>
 <body>
-  <p>Clique no botão abaixo para iniciar o jogo!</p>
+  <p style="font-family: 'Courier New'; font-size: 20px; color: #f2dcff;">🧩 Advinhe o numero secreto.</p>
   <button onclick="iniciarJogo()">Iniciar Jogo</button>
 
   <script>
-    function iniciarJogo() {
-      let dificuldade = prompt("Escolha a dificuldade: fácil, médio ou difícil");
-      let limite;
+    let melhorPontuacao = 0; // Fica fora do loop e guarda o melhor resultado
+    function iniciarJogo()
+    {
 
-      if (dificuldade === "fácil") {
-        limite = 10;
-      } else if (dificuldade === "médio") {
-        limite = 50;
-      } else if (dificuldade === "difícil") {
-        limite = 100;
-      } else {
-        alert("Dificuldade inválida. Tente novamente.");
-        return; // encerra a função
+      let dificuldade = prompt("Escolha a dificuldade: fácil, médio ou difícil");
+        let limite;
+
+        if (dificuldade === "fácil") {
+          limite = 10;
+        } else if (dificuldade === "médio") {
+          limite = 50;
+        } else if (dificuldade === "difícil") {
+          limite = 100;
+        } else {
+          alert("Dificuldade inválida. Tente novamente.");
+          return; // encerra a função
+        }
+
+    let jogarNovamente = true;
+
+    while (jogarNovamente)
+    {
+
+      let tentativas = 0;
+      let acertou = false;
+
+      while (tentativas < 5)
+      {
+        let numeroSecreto = parseInt(Math.random() * limite) + 1;
+        console.log(numeroSecreto)
+
+        let chute = parseInt(prompt(`Tente adivinhar o número de 1 a ${limite}`));
+        tentativas++; // forma prática de somar 1 a  variável
+        // tentativas só somam e não param em caso de acerto
+        if(chute != numeroSecreto)
+        {
+          let tentativasRestantes = 5 - tentativas;
+          alert(`Você errou! Faltam ${tentativasRestantes} tentativa(s).`);
+        } else { (chute === numeroSecreto)
+          alert(`Parabéns! Você acertou em ${tentativas} tentativa(s)!`);
+          break;
+        }
+
       }
 
-      let numeroSecreto = parseInt(Math.random() * limite) + 1;
-      console.log(numeroSecreto)
-      let chute = parseInt(prompt(`Tente adivinhar o número de 1 a ${limite}`));
+      let pontos = 10 - (tentativas - 1) * 2; // Ex: 10, 8, 6 // Atualiza ranking se for a melhor pontuação
+          melhorPontuacao = pontos;
+          if (pontos > melhorPontuacao)
+          {
+            alert(`🎉 Novo recorde: ${melhorPontuacao} pontos!`);
+          } else {
+            alert(`Você fez ${pontos} pontos. Recorde atual: ${melhorPontuacao}`);
+          }
 
-      if (chute === numeroSecreto) {
-        alert("Parabéns, você acertou!");
-      } else {
-        alert(`Você errou! O número era ${numeroSecreto}.`);
+          acertou = true;
+          break;
+          alert("Você errou!");
+
+      if (!acertou) {
+        alert(`Fim de jogo! O número era ${numeroSecreto}.`);
       }
     }
+      jogarNovamente = confirm("Deseja jogar novamente?");
+
+      alert("Obrigado por jogar!");
+
+  }
   </script>
 
 <img id="purpleGif" src="purplevibe.gif" alt="dev fetus">
